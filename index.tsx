@@ -49,11 +49,13 @@ export type ScrollPickerProps = {
   itemHeight?: number;
   wrapperHeight?: number;
   wrapperColor?: string;
+  highlightStyle?: ViewStyle;
 };
 
 export default function ScrollPicker({
   itemHeight = 30,
   style,
+  highlightStyle: highlightStyleProps,
   ...props
 }: ScrollPickerProps): JSX.Element {
   const [initialized, setInitialized] = useState(false);
@@ -208,6 +210,7 @@ export default function ScrollPicker({
     borderBottomColor: highlightColor,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderBottomWidth: StyleSheet.hairlineWidth,
+    ... highlightStyleProps,
   };
 
   return (
